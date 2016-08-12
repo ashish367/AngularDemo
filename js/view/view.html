@@ -1,0 +1,91 @@
+
+<style>
+
+
+.existing-iframe-example{
+	width:100%;}
+	.divs:last-child {
+    border:none !important;
+}
+#img{
+	position:relative;
+	width:15%;
+	float:left;
+	margin-right:10px;
+}
+#text{
+	position:relative;
+	width:65%;
+	float:right;
+}
+#p1{
+	font-size:12px;
+	color:#2e2e2e;
+	line-height:15px;
+}
+#p2{
+	font-size:10px;
+	color:#666;
+	position:relative;
+	top:-10px;
+}
+.nowPlaying {
+ background-color: lightgrey;
+}
+.btn1{
+	float:left;
+	position:relative;
+	left:15px;
+
+}
+
+.btn2{
+	float:right;
+	position:relative;
+	right:15px;
+}
+#bottom_btn{
+	padding:0px 0px 5px 0px;
+}
+
+
+</style>
+
+<md-content flex>
+    <md-card class="card-heading" id="top">
+
+            <span>
+							<!-- <iframe id="existing-iframe-example"
+        width="{{windowidth}}" height="{{iframeheight}}"
+        src="{{youtubeUrl	}}"
+        frameborder="0"
+        style="border: solid 4px #37474F"
+></iframe> -->
+                 <div class="embed-responsive embed-responsive-16by9">
+                     <youtube-Video class="embed-responsive-item" video-id="playingId" player-width="'100%'" player-height="iframeheight" player-vars="playerVars"></youtube-Video>
+                 </div>
+            </span>
+
+
+            </div>
+    </md-card>
+    <md-card flex id="list">
+        <div ng-repeat="track in ytracklist" class="divs" style="border-bottom:1px solid #ccc; padding:10px 0px;height:{{youtubelistheight}}" ng-click="playvideo(track.id.videoId)"
+				ng-class="{nowPlaying:track.id.videoId == playingId}">
+		        <span id="img">
+		            <img src={{track.snippet.thumbnails.default.url}} style="width:100px;heigth:60px; ">
+		        </span>
+						<span id="text">
+	        		<p id="p1">{{track.snippet.title | limitTo:30}}</p>
+	        		<p id="p2">{{track.snippet.channelTitle | limitTo:30}}</p>
+						</span>
+				</div>
+
+    </md-card>
+		<div id="bottom_btn">
+			<p>{{connection}}Ashish</p>
+						<md-button class="btn1" ng-click="previousPageToken();"> Previous </md-button>
+
+						<md-button class="btn2" ng-click="nextPageToken();"> Next</md-button>
+		</div>
+</md-content>

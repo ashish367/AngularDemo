@@ -1,0 +1,8 @@
+<div class="form-group">
+	<input name="states" id="states" type="text" placeholder="enter a state" ng-model="selected" uib-typeahead="search for search in states | filter:$viewValue | limitTo:8">
+		<button class="btn btn-success" type="submit" ng-click="addStates(selected);">Submit</button>
+</div>
+<div>
+	<button class="btn btn-success" type="submit" ng-click="Clockin();">Clockin</button>
+	<button class="btn btn-success" type="submit" ng-click="Clockout();">Clockout</button>
+</div>
