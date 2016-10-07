@@ -1,7 +1,6 @@
 ﻿﻿// include plug-ins
 var gulp = require('gulp');
 var inject = require('gulp-inject');
-var replace = require('gulp-replace');
 var connect = require('gulp-connect');
 var config = {
     src: ['js/**/*.js']

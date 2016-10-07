@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -39,30 +39,46 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
-        
+
     </head>
         <title>Saving</title>
 
-    <body ng-app="app">
-    
-     <div ng-view></div>
+    <body ng-app="Cinema" >
 
-    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js">
+     <div ng-view style="background-color:white !important;"></div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js">
     </script>
-    <script type="text/javascript"src="bower_components/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript"src="bower_components/angular-material/angular-material.js"></script>
+    <script type="text/javascript"src="bower_components/angular-aria/angular-aria.js"></script>
+
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js">
     </script>
-
     <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-carousel/dist/angular-carousel.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-youtube-api-factory/dist/angular-youtube-api-factory.min.js"></script>
+    <script src="bower_components/youtube-iframe-api/youtube.iframe-api.js"></script>
+    <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+
+
+
       <!-- inject:js -->
+      <script src="/js/api_client.js"></script>
+      <script src="/js/gapi.js"></script>
       <script src="/js/index.js"></script>
       <script src="/js/route.js"></script>
-      <script src="/js/Dashboard/dashboard.js"></script>
+      <script src="/js/Dashboard/dashboard.controller.js"></script>
+      <script src="/js/AddDetail/AddDetails.controller.js"></script>
+      <script src="/js/Password/Password.controller.js"></script>
+      <script src="/js/View/view.controller.js"></script>
       <!-- endinject -->
+      <!-- <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/index.js"></script> -->
     </body>
 </html>
