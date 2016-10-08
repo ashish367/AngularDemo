@@ -1,0 +1,15 @@
+<md-toolbar md-scroll-shrink id="toolbar">
+        <div class="md-toolbar-tools"> Welcome  to Cinema</div>
+  	</md-toolbar>
+<!--     <md-card class="maincard"> -->
+		<div id="maindiv">
+    		<ul rn-carousel rn-carousel-index="1" rn-carousel-transition="hexagon" rn-carousel-buffered rn-carousel-loop>
+        		<li  ng-repeat="image in carouselimg" >
+					<md-button class="md-icon my-icon-button" aria-label="{{image}}" ng-click="openTodo(image)">
+ 						<img ng-src="{{image}}" alt="{{image}}" id="carouselimg">
+					</md-button>
+				</li>
+	    	</ul>
+    	</div>
+<!--     </md-card>
+ -->

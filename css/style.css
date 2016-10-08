@@ -1,0 +1,18 @@
+#toolbar{
+	background-color: #00BCD4 !important;
+}
+ul {
+    width: 300px;
+    height:450px;
+}
+.video {
+    background-size: cover;
+    position:relative;
+}
+#maindiv{
+	margin:35%;
+}
+#maindiv #carouselimg{
+	width: 70%;
+	height: 50%;
+}
