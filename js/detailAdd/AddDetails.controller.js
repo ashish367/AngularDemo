@@ -1,6 +1,6 @@
 angular.module('Cinema').controller('AddCtrl', AddInit);
 /**@nginject*/
-function AddInit($scope, $rootScope, $location, $http, $cookies) {
+function AddInit($scope, $rootScope, $location, $http) {
   initialize();
   loadAddVM();
   function initialize() {

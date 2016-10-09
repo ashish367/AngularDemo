@@ -1,12 +1,10 @@
 angular.module('Cinema',[
 	'angular-carousel',
-  'ngRoute',
-	'jtt_youtube',
-	'youtube-embed',
-	'ui.bootstrap',
-  'ngCookies',
-  'ngMaterial',
-  'ng-mfb',
+'ngRoute',
+'jtt_youtube',
+'youtube-embed',
+'ui.bootstrap',
+'ngMaterial',
 ]).controller('Dashboard',DashboardInit);
 
 /** @nginject*/

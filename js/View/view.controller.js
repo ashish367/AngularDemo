@@ -1,70 +1,20 @@
 angular.module('Cinema').controller('View', ViewInit);
 /**@nginject*/
-function ViewInit($scope, $rootScope, $location, $http, youtubeFactory, $sce, youtubeEmbedUtils) {
+function ViewInit($scope, $rootScope, $location, $http, youtubeFactory, $sce) {
   initialize();
 
   function initialize() {
 
     var windowHeight = screen.height; //full screen height
     $scope.windowidth = screen.width - 16; //full screen height
-    $scope.iframeheight = $scope.windowidth * 9 / 16;
-    var contentElement = document.getElementById("top");
-    var currentContentHeight = contentElement.offsetHeight; // youtube video height
-    var youtubelistcard = ((windowHeight - currentContentHeight) - 60);
-    document.getElementById('list').style.height = youtubelistcard + "px";
-    document.getElementById('list').style.overflow = "hidden";
-    var a = document.getElementById("list");
-    var b = a.offsetHeight;
-    $scope.youtubelistheight = (b / 4) - 5;
+    $scope.iframeheight = 232;
+    var headerHeight = 56;
+    $scope.YoutubeListCard = (windowHeight - ($scope.iframeheight + headerHeight));
+    $scope.youtubelistheight = ($scope.YoutubeListCard / 4);
 
-    var tag = document.createElement('script');
-    tag.id = 'iframe-demo';
-    tag.src = 'https://www.youtube.com/iframe_api';
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    var player;
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('existing-iframe-example', {
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-
-    function onPlayerReady(event) {
-      document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
-      event.target.playVideo();
-    }
-
-    function changeBorderColor(playerStatus) {
-      var color;
-      if (playerStatus == -1) {
-        color = "#37474F"; // unstarted = gray
-      } else if (playerStatus == 0) {
-        color = "#FFFF00"; // ended = yellow
-      } else if (playerStatus == 1) {
-        color = "#33691E"; // playing = green
-      } else if (playerStatus == 2) {
-        color = "#DD2C00"; // paused = red
-      } else if (playerStatus == 3) {
-        color = "#AA00FF"; // buffering = purple
-      } else if (playerStatus == 5) {
-        color = "#FF6DOO"; // video cued = orange
-      }
-      if (color) {
-        document.getElementById('existing-iframe-example').style.borderColor = color;
-      }
-    }
-
-    function onPlayerStateChange(event) {
-      changeBorderColor(event.data);
-    }
     var _apiKey = "AIzaSyBtb7OkQLfSP3GcM9j37otCAKFOfPuXJ3s";
-    var artistname = "";
-    var trackname = "hum saath ssath hai";
+    var artistname = "Arjit singh";
+    var trackname = "Channa Merya";
     var searchkeyword = artistname + trackname;
     youtubeFactory.getVideosFromSearchByParams({
       key: _apiKey,
@@ -107,10 +57,10 @@ function ViewInit($scope, $rootScope, $location, $http, youtubeFactory, $sce, yo
         autoplay: 1,
         origin: "http://www.youtube.com"
       }
-      $scope.playingId = ' eI6T19qPx2Q';
       var url = 'https://www.youtube.com/embed/' + $scope.playingId + '?enablejsapi=1';
+      $scope.playingId = videoId;
       $scope.youtubeUrl = $sce.trustAsResourceUrl(url);
-      console.info("videos from search by ycurrentvideo", $scope.youtubeUrl);
+      console.info("videos from search by ycurrentvideo",$scope.playingId);
     }
   }
 

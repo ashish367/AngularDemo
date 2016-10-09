@@ -1,4 +1,4 @@
-﻿﻿// include plug-ins
+// include plug-ins
 var gulp = require('gulp');
 var inject = require('gulp-inject');
 var connect = require('gulp-connect');
